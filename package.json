@@ -1,11 +1,11 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject",
+    "start": "craco start",
+    "android": "craco start --android",
+    "ios": "craco start --ios",
+    "web": "craco start --web",
+    "eject": "craco eject",
     "test": "jest --watchAll"
   },
   "jest": {
@@ -17,6 +17,8 @@
     "@react-navigation/bottom-tabs": "^5.8.0",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
+    "craco": "^0.0.3",
+    "craco-purescript-loader": "^1.0.1",
     "expo": "~39.0.2",
     "expo-asset": "~8.2.0",
     "expo-constants": "~9.2.0",
