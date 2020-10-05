@@ -8,8 +8,10 @@ You can edit this file as you like.
   , "effect"
   , "interpolate"
   , "psci-support"
+  , "react-basic"
   , "react-basic-dom"
   , "react-basic-hooks"
+  , "react-basic-native"
   ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]

@@ -6,7 +6,9 @@ import { Text, View } from "../components/Themed";
 
 import { Accelerometer } from "expo-sensors";
 
-import { jsCounter as Counter } from "../src/MyApp/Components/Counter.purs";
+import { jsCounter as Counter } from "../output/MyApp.Components.Counter.Interop/index.js";
+
+import Plotly from "react-native-plotly";
 
 export default function TabOneScreen() {
   const [data, setData] = React.useState({});
@@ -32,25 +34,33 @@ export default function TabOneScreen() {
 
   let { x, y, z } = data;
 
+  const chart_data = {
+    x: [1, 2, 3, 4, 5],
+    y: [1, 2, 3, 4, 8],
+    type: "scatter",
+  };
+
+  const layout = { title: "My cool chart!" };
+
   return (
-    <div>
-      {/* <Counter/> */}
-    </div>
-    // <View style={styles.container}>
-    //   <Text style={styles.title}>Tab One</Text>
-    //   <View
-    //     style={styles.separator}
-    //     lightColor="#eee"
-    //     darkColor="rgba(255,255,255,0.1)"
-    //   />
-    //   <Text style={styles.text}>
-    //     x: {round(x)} y: {round(y)} z: {round(z)}
-    //   </Text>
-    //   <View style={styles.container}>
-    //     <Counter label="Click me!" />
-    //   </View>
-    //   <EditScreenInfo path="/screens/TabOneScreen.js" />
-    // </View>
+    <View style={styles.container}>
+      <Text style={styles.title}>Tab One</Text>
+      <View
+        style={styles.separator}
+        lightColor="#eee"
+        darkColor="rgba(255,255,255,0.1)"
+      />
+      {/* <Text style={styles.text}>
+        x: {round(x)} y: {round(y)} z: {round(z)}
+      </Text> */}
+      {/* <View style={styles.container}>
+        <Counter label="Click me!" />
+      </View> */}
+      <View style={styles.container}>
+        <Plotly data={chart_data} layout={layout} />
+      </View>
+      <EditScreenInfo path="/screens/TabOneScreen.js" />
+    </View>
   );
 }
 
@@ -78,3 +88,4 @@ function round(n) {
 
   return Math.floor(n * 100) / 100;
 }
+
